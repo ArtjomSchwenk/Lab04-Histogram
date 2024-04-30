@@ -1,4 +1,5 @@
 package src;
+import java.text.Normalizer;
 
 public class main {
     public class Alphabet {
