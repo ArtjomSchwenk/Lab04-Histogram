@@ -120,4 +120,43 @@ public class Histogram {
             logger.severe(e.toString());
         }
     }
+
+    // TASK 04
+    public static void count(Reader reader) {
+        Histogram count = new Histogram();
+
+        try (BufferedReader bufferedReader = new BufferedReader(reader)) {
+            int nextCharInt;
+            while ((nextCharInt = bufferedReader.read()) != -1) {
+                char nextChar = (char) nextCharInt;
+                if (isASCIILetters(nextChar)) {
+                    int index = getNormalizedIndex(nextChar);
+                    frequencies[index]++;
+                }
+            }
+        } catch (IOException e) {
+            logger.severe("An error occurred:");
+            logger.severe(e.toString());
+        }
+
+        System.out.println("Character frequencies:");
+        count.printFrequencies();
+    }
+
+    public void printFrequencies() {
+        for (int i = 0; i < frequencies.length; i++) {
+            System.out.println(frequencies[i]);
+        }
+    }
+
+    public void testCharacterFrequencyCounter() {
+        try {
+            FileReader reader = new FileReader("files/file.txt");
+            count(reader);
+        } catch (IOException e) {
+            logger.severe("An error occurred:");
+            logger.severe(e.toString());
+        }
+    }
+
 }

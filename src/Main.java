@@ -24,5 +24,8 @@ public class Main {
 
         // TASK 03
         histogram.countCharacterFrequencies("files/script.txt", "files/ASCIILetters.txt");
+
+        // TASK 04
+        histogram.testCharacterFrequencyCounter();
     }
 }
