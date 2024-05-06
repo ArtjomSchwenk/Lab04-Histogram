@@ -18,6 +18,11 @@ public class Main {
         }
 
         // TASK 02
-        histogram.writeStringToFile("files/string.txt", "TESTING STRING");
+        histogram.writeStringToFile("files/file.txt", "TESTING STRING");
+        histogram.writeIntegerToFile("files/file.txt", 123);
+        histogram.createFile("files/testFile.txt");
+
+        // TASK 03
+        histogram.countCharacterFrequencies("files/script.txt", "files/ASCIILetters.txt");
     }
 }
