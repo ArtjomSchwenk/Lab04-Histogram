@@ -1,7 +1,6 @@
 package src;
 
 import java.io.BufferedReader;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,17 +10,10 @@ import java.io.Reader;
 import java.util.logging.Logger;
 
 public class Histogram {
-    public void readFile() {
-        private static final Logger logger = Logger.getLogger(Histogram.class.getName());
-        Path path = Paths.get("files/script.txt");
-        try (BufferedReader reader = Files.newBufferedReader(path, Charset.defaultCharset())) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-    }
+    private static int[] frequencies;
+    private static final Logger logger = Logger.getLogger(Histogram.class.getName());
+
+    public static Character getNextCharacter(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             int nextCharInt;
 
@@ -40,5 +32,14 @@ public class Histogram {
         return null;
     }
 
-}
+    public void writeStringToFile(String filePath, String content) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            writer.write(content);
+            System.out.println("'" + content + "'"+ " successfully written to the file: " + filePath);
+        } catch (IOException e) {
+            logger.severe("An error occurred:");
+            logger.severe(e.toString());
+        }
+    }
+
 }
