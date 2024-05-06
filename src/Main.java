@@ -27,5 +27,11 @@ public class Main {
 
         // TASK 04
         histogram.testCharacterFrequencyCounter();
+
+        // TASK 05
+        histogram.testMostFrequentChar("files/script.txt");
+
+        // TASK 07
+        histogram.printHistogramWithStars(3);
     }
 }

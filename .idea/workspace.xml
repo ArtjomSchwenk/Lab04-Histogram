@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b81e3244-7245-48e0-af22-d934cf6ac1b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/ASCIILetters.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab04-Histogram/src/Histogram.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab04-Histogram/src/Histogram.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab04-Histogram/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab04-Histogram/src/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Histogram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Histogram.java" afterDir="false" />

@@ -12,6 +12,10 @@ import java.util.logging.Logger;
 public class Histogram {
     private static int[] frequencies;
 
+    public Histogram() {
+        frequencies = new int[52];
+    }
+
     // TASK 01
     private static final Logger logger = Logger.getLogger(Histogram.class.getName());
 
@@ -156,6 +160,63 @@ public class Histogram {
         } catch (IOException e) {
             logger.severe("An error occurred:");
             logger.severe(e.toString());
+        }
+    }
+
+    // TASK 05
+    private char printMostFrequentChar() {
+        char mostFrequentChar = ' ';
+        int maxFrequency = Integer.MIN_VALUE;
+
+        for (char c = 'A'; c <= 'Z'; c++) {
+            if (frequencies[c - 'A'] > maxFrequency) {
+                maxFrequency = frequencies[c - 'A'];
+                mostFrequentChar = c;
+            }
+        }
+        for (char c = 'a'; c <= 'z'; c++) {
+            if (frequencies[c - 'a' + 26] > maxFrequency) {
+                maxFrequency = frequencies[c - 'a' + 26];
+                mostFrequentChar = c;
+            }
+        }
+
+        return mostFrequentChar;
+    }
+
+    public static void testMostFrequentChar(String inputFilePath) {
+        Histogram histogram = new Histogram();
+
+        buffer(inputFilePath, frequencies);
+
+        char mostFrequentChar = histogram.printMostFrequentChar();
+        System.out.println("Most frequent character: " + mostFrequentChar);
+    }
+
+    // TASK 06
+    public static void createHistogram(String inputFilePath, String outputFilePath) {
+        int[] frequencies = new int[52];
+
+        buffer(inputFilePath, frequencies); // GOOFY AHHH MOMENT - MALTE
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))) {
+            for (char c = 'A'; c <= 'Z'; c++) {
+                writer.write(c + ": " + frequencies[c - 'A'] + "\n");
+            }
+            for (char c = 'a'; c <= 'z'; c++) {
+                writer.write(c + ": " + frequencies[c - 'a' + 26]  + "\n");
+            }
+        } catch (IOException e) {
+            logger.severe("An error occurred:");
+            logger.severe(e.toString());
+        }
+
+        System.out.println("Character frequencies written to: " + outputFilePath);
+    }
+
+    public void printStars(int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print("*");
         }
     }
 
